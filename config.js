@@ -275,14 +275,14 @@ module.exports = kconfig = async (kill, message) => {
         if (isGroupMsg && autoSticker && isMedia && isImage && !isCmd) {
             const mediaData = await decryptMedia(message, uaOverride)
             const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-            await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+            await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
         }
 		
         // Auto-sticker de videos
 		if (isGroupMsg && autoSticker && isMedia && isVideo && !isCmd) {
 			const mediaData = await decryptMedia(message, uaOverride)
 			const videoBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-			await kill.sendMp4AsSticker(from, videoBase64, null, { stickerMetadata: true, pack: '🔰 Iris/Legião Z ⚜️', author: '🎁 https://bit.ly/30t4jJV ☆', fps: 30, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: false, loop: 0 })
+			await kill.sendMp4AsSticker(from, videoBase64, null, { stickerMetadata: true, pack: '+55 37 8821-1074 🌎', author: '🎁 Bot whats ☆', fps: 30, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: false, loop: 0 })
 		}
 
         // ANTI FLOOD PRIVADO
@@ -315,15 +315,15 @@ module.exports = kconfig = async (kill, message) => {
             if (isMedia && isImage) {
 				const mediaData = await decryptMedia(message, uaOverride)
 				const imageBase64 = `data:${mimetype};base64,${mediaData.toString('base64')}`
-				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
             } else if (isQuotedImage) {
                 const mediaData = await decryptMedia(quotedMsg, uaOverride)
 				const imageBase64 = `data:${quotedMsg.mimetype};base64,${mediaData.toString('base64')}`
-				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+				await kill.sendImageAsSticker(from, imageBase64, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
             } else if (args.length == 1) {
                 const url = args[0]
                 if (isUrl(url)) {
-                    await kill.sendStickerfromUrl(from, url, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+                    await kill.sendStickerfromUrl(from, url, { method: 'get' }, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
                         .catch(err => console.log('Erro: ', err))
                 } else {
 					await kill.reply(from, mess.error.Iv, id)
@@ -337,7 +337,7 @@ module.exports = kconfig = async (kill, message) => {
 		case 'ttp':
 			if (args.length == 0) return kill.reply(from, 'Cadê a frase né?', id)
 			const ttpst = await axios.get(`https://st4rz.herokuapp.com/api/ttp?kata=${body.slice(5)}`)
-			await kill.sendImageAsSticker(from, ttpst.data.result, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+			await kill.sendImageAsSticker(from, ttpst.data.result, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
 			break
 			
 			
@@ -376,7 +376,7 @@ module.exports = kconfig = async (kill, message) => {
                     var outFile = './lib/media/img/noBg.png'
                     var result = await removeBackgroundFromImageBase64({ base64img, apiKey: config.nobg, size: 'auto', type: 'auto', outFile })
                     await fs.writeFile(outFile, result.base64img)
-                    await kill.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+                    await kill.sendImageAsSticker(from, `data:${mimetype};base64,${result.base64img}`, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
 					await kill.reply(from, 'Certifique-se de evitar usar isso quando não precisar,', id)
                 } catch(err) {
                     console.log(err)
@@ -395,7 +395,7 @@ module.exports = kconfig = async (kill, message) => {
                     const encryptMedia = isQuotedGif || isQuotedVideo ? quotedMsg : message
                     const mediaData = await decryptMedia(encryptMedia, uaOverride)
                     const gifSticker = `data:${mimetype};base64,${mediaData.toString('base64')}`
-                    await kill.sendMp4AsSticker(from, gifSticker, null, { stickerMetadata: true, pack: '🔰 Iris/Legião Z ⚜️', author: '🎁 https://bit.ly/30t4jJV ☆', fps: 30, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: false, loop: 0 })
+                    await kill.sendMp4AsSticker(from, gifSticker, null, { stickerMetadata: true, pack: '+55 37 8821-1074 🌎', author: '🎁 Bot whats ☆', fps: 30, startTime: '00:00:00.0', endTime : '00:00:05.0', crop: false, loop: 0 })
                 } catch (err) {
                     console.error(err)
                     await kill.reply(from, 'Esse sticker obteve erros, é provavel que seja o seu peso, o maximo é de 1MB.', id)
@@ -456,7 +456,7 @@ module.exports = kconfig = async (kill, message) => {
             const stkm = await fetch(`https://api.fdci.se/sosmed/rep.php?gambar=${body.slice(7)}`)
 			const stimg = await stkm.json()
             let stkfm = stimg[Math.floor(Math.random() * stimg.length) + 1]
-            await kill.sendStickerfromUrl(from, stkfm, { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+            await kill.sendStickerfromUrl(from, stkfm, { method: 'get' }, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
 			.catch(() => { kill.reply(from, 'Nenhuma imagem recebida ou servidor offline, tente mais tarde.', id) })
             break
 			
@@ -1122,7 +1122,7 @@ module.exports = kconfig = async (kill, message) => {
 			
         case 'roll':
             const dice = Math.floor(Math.random() * 6) + 1
-            await kill.sendStickerfromUrl(from, 'https://www.random.org/dice/dice' + dice + '.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+            await kill.sendStickerfromUrl(from, 'https://www.random.org/dice/dice' + dice + '.png', { method: 'get' }, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
             break
 			
 			
@@ -1172,7 +1172,7 @@ module.exports = kconfig = async (kill, message) => {
 			} else {
 				if (args[0] == 'cara' || args[0] == 'coroa') {
 					if (side == 1) {
-						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/LJjkVK5/heads.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/LJjkVK5/heads.png', { method: 'get' }, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
 						if (args[0] == 'cara') {
 							await kill.reply(from, `O resultado foi de "Cara", você ganhou ${pflipxp} XP.`, id)
 							rank.addXp(user, pflipxp, nivel)
@@ -1181,7 +1181,7 @@ module.exports = kconfig = async (kill, message) => {
 							rank.addXp(user, nflipxp, nivel)
 						}
 					} else {
-						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/wNnZ4QD/tails.png', { method: 'get' }, { author: '🎁 https://bit.ly/30t4jJV ☆', pack: '🔰 Iris/Legião Z ⚜️', keepScale: true })
+						await kill.sendStickerfromUrl(from, 'https://i.ibb.co/wNnZ4QD/tails.png', { method: 'get' }, { author: '🎁 Bot whats ☆', pack: '+55 37 8821-1074 🌎', keepScale: true })
 						if (args[0] == 'coroa') {
 							await kill.reply(from, `O resultado foi de "Coroa", você ganhou ${pflipxp} XP.`, id)
 							rank.addXp(user, pflipxp, nivel)
@@ -2802,21 +2802,6 @@ module.exports = kconfig = async (kill, message) => {
 			break
 			
 			
-        case 'autosticker':
-            if (!isGroupMsg) return await kill.reply(from, mess.error.Gp, id)
-            if (!isGroupAdmins) return await kill.reply(from, mess.error.Ga, id)
-            if (args[0] == 'on') {
-                atstk.push(groupId)
-                fs.writeFileSync('./lib/config/sticker.json', JSON.stringify(atstk))
-                await kill.reply(from, 'O Auto-Sticker foi ativado, todas as imagens e videos enviadas serão convertidas em sticker.', id)
-            } else if (args[0] == 'off') {
-                atstk.splice(groupId, 1)
-                fs.writeFileSync('./lib/config/sticker.json', JSON.stringify(atstk))
-                await kill.reply(from, 'Auto-Sticker desativado, as imagens e videos não serão automaticamente convertidas em sticker.', id)
-            } else {
-                await kill.reply(from, 'Defina entre [on] e [off].', id)
-            }
-			break
 			
 			
 		case 'unblock':
