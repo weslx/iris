@@ -3015,12 +3015,12 @@ module.exports = kconfig = async (kill, message) => {
 				if (!isBotGroupAdmins) return kill.reply(from, mess.error.Ba, id)
 				if (quotedMsg) {
 					const bgmcomum = quotedMsgObj.sender.id
-					await kill.sendTextWithMentions(from, `Ihhhh @${bgmcomum}, parece que vc irritou algum ADM, daqui a pouco te coloco de volta!`)
+					await kill.sendTextWithMentions(from, `Ihhhh @${bgmcomum}, VOCE FOI AVISADO!`)
 					await kill.removeParticipant(groupId, bgmcomum)
 					setTimeout(() => {
-						kill.reply(from, 'Está na hora de voltar o nosso querido ~corno~ membro.', id)
+						kill.reply(from, 'Está na hora de voltar o nosso querido ~corno~ .', id)
 						kill.addParticipant(groupId, bgmcomum)
-					}, 1800000) //30 minutos em milissegundos
+					}, 60000) //30 minutos em milissegundos
 					await sleep(1810000)
 					await kill.sendTextWithMentions(from, `@${bgmcomum}, espero que você tenha repensado suas ações e se acalmado.`)
 				} else {
@@ -3033,7 +3033,7 @@ module.exports = kconfig = async (kill, message) => {
 						setTimeout(() => {
 							kill.reply(from, 'Está na hora de voltar o nosso querido ~corno~ membro.', id)
 							kill.addParticipant(groupId, mentionedJidList[i])
-						}, 1800000) //30 minutos em milissegundos
+						}, 60000) //30 minutos em milissegundos
 						await sleep(1810000)
 						await kill.sendTextWithMentions(from, `@${mentionedJidList[i]}, espero que você tenha repensado suas ações e se acalmado.`)
 					}
@@ -3087,6 +3087,24 @@ module.exports = kconfig = async (kill, message) => {
 				await kill.reply(from, 'Essa subreedit não parece existir/ter posts ou obtive erros com a mesma...', id)
 			}
 			break
+	        
+			
+			case 'autosticker':
+            if (!isGroupMsg) return await kill.reply(from, mess.error.Gp, id)
+            if (!isOwner) return kill.reply(from, mess.error.Kl, id)
+            if (args[0] == 'on') {
+                atstk.push(groupId)
+                fs.writeFileSync('./lib/config/sticker.json', JSON.stringify(atstk))
+                await kill.reply(from, 'O Auto-Sticker foi ativado, todas as imagens e videos enviadas serão convertidas em sticker.', id)
+            } else if (args[0] == 'off') {
+                atstk.splice(groupId, 1)
+                fs.writeFileSync('./lib/config/sticker.json', JSON.stringify(atstk))
+                await kill.reply(from, 'Auto-Sticker desativado, as imagens e videos não serão automaticamente convertidas em sticker.', id)
+            } else {
+                await kill.reply(from, 'Defina entre [on] e [off].', id)
+            }
+			break
+
 			
 		// Base Jon	
 		case 'wallhaven':
