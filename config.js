@@ -2090,7 +2090,7 @@ module.exports = kconfig = async (kill, message) => {
             const check = await kill.inviteInfo(gplk)
             if (!isLink) return kill.reply(from, 'O link não parece funcional.', id)
             if (tGr.length > config.memberLimit) return kill.reply(from, 'Já estou no maximo de grupos, desculpe.', id)
-            if (check.size < config.memberLimit) return kill.reply(from, 'Só posso funcionar em grupos com mais de 60 pessoas.', id)
+            if (check.size < config.memberLimit) return kill.reply(from, 'Só posso funcionar em grupos com mais de 50 pessoas.', id)
             if (check.status == 200) {
                 await kill.joinGroupViaLink(gplk).then(() => kill.reply(from, 'Entrando no grupo...'))
             } else {
